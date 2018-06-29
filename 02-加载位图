@@ -1,0 +1,15 @@
+# 加载位图
+
+Egret 提供了 ImageLoader 类，用于加载位图文件。
+```typeScript
+var imgLoader:egret.ImageLoader = new egret.ImageLoader;
+imgLoader.once( egret.Event.COMPLETE, this.imgLoadHandler, this ); 
+imgLoader.load( "resource/egret.png" );
+
+imgLoadHandler( evt:egret.Event ):void{
+    var loader:egret.ImageLoader = evt.currentTarget;
+    var bmd:egret.BitmapData = loader.data;
+    var bmp:egret.Bitmap = new egret.Bitmap( bmd );
+    this.addChild(bmp);
+}
+```
