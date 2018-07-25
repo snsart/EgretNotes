@@ -1,9 +1,10 @@
 # EUI的使用流程
 1. 存储并加载美工设计的ui图片资源；
 2. 使用exml定义皮肤；
-3. 定义逻辑组件,逻辑组件通过皮肤部件访问exml中的子项,逻辑组件中的公共属性对应exml中的同名id;
-4. 利用逻辑组件的skinname属性，为组件添加皮肤,也可以通过主题配置添加默认皮肤;
-5. 可以通过容器类(Group)的layout属性为容器添加布局，布局分为：基本布局、水平布局、垂直布局、网格布局以及自定义布局；
-6. eui提供了很多定义好的组件（控件）：文本、图片、按钮、复选框、单选框、状态切换按钮、滑动选择器、进度条、输入文本，自己可以直接拿来使用，并且可以为这些控件添加自定义皮肤；
-7.eui提供的容器有：简单容器、层叠容器、面板容器、滚动控制容器，其中滚动控制容器通过viewport添加内容，其他的通过addChild添加内容；
-8. 数据容器：用来显示一系列数据的ui，其中常用的List列表就继承自dataGroup，dataGroup通过数据集合（eui.ArrayCollection）来获得数据，通过ItemRenderer（或itemRendererSkinName）来渲染数据，当改变eui.ArrayCollection中的数据时，eui.ArrayCollection会发送事件，从而改变dataGroup的呈现；
+3. 可以在exml中实现数据绑定,只需要一对{}括号;
+4. 定义逻辑组件,逻辑组件通过皮肤部件访问exml中的子项,逻辑组件中的公共属性对应exml中的同名id;
+5. 利用逻辑组件的skinname属性，为组件添加皮肤,也可以通过主题配置添加默认皮肤;
+6. 可以通过容器类(Group)的layout属性为容器添加布局，布局分为：基本布局、水平布局、垂直布局、网格布局以及自定义布局；
+7. eui提供了很多定义好的组件（控件）：文本、图片、按钮、复选框、单选框、状态切换按钮、滑动选择器、进度条、输入文本，自己可以直接拿来使用，并且可以为这些控件添加自定义皮肤；
+8. eui提供的容器有：简单容器、层叠容器、面板容器、滚动控制容器，其中滚动控制容器通过viewport添加内容，其他的通过addChild添加内容；
+9. 数据容器dataGroup：用来显示一系列数据的ui，其中常用的List列表就继承自dataGroup，dataGroup通过数据集合（eui.ArrayCollection）来获得数据，通过ItemRenderer（或itemRendererSkinName）来渲染数据(ItemRenderer中有data属性指向数据集合中的数据)，当改变eui.ArrayCollection中的数据时，eui.ArrayCollection会发送事件，从而改变dataGroup的呈现；
