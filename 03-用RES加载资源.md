@@ -36,3 +36,20 @@ private onGroupComplete()
      this.addChild(img);
 }
 ```
+
+### RES提供的加载事件
+```typeScript
+* RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);//资源组加成完成监听
+* RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);//资源组加载错误监听
+* RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);//资源组加载进度监听
+* RES.addEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
+* RES.loadGroup("preload");
+```
+这里需要注意，组加载事件回调函数里的写法，需要使用event.groupName判断下这个事件是属于哪个资源组，因为可能有多个资源组同时在加载。示例代码如下：
+```typeScript
+private onResourceProgress( event:RES.ResourceEvent ):void {
+    if( event.groupName=="preload" ){
+        this.loadingView.setProgress( event.itemsLoaded,event.itemsTotal );
+    }
+}
+```
